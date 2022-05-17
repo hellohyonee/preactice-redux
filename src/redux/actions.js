@@ -1,8 +1,8 @@
-const ADD_TODO = "ADD_TODO";
+export const ADD_TODO = "ADD_TODO";
 
 function addTodo(todo) {
-    return {
-        type: ADD_TODO,
-        todo,
-    }
+  return {
+    type: ADD_TODO,
+    todo,
+  }
 }
