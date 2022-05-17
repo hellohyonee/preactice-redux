@@ -2,7 +2,7 @@ import { ADD_TODO } from "./actions"
 
 const initialState = []; // 초기값을 먼저 설정하여 자동으로 previousState가 초기값을 알게 함
 
-function todoApp(previousState = initialState, action) {
+export function todoApp(previousState = initialState, action) {
   // 초기값 설정
   // if (previousState === undefined) {
   //   return [];
