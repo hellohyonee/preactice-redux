@@ -1,9 +1,8 @@
 import { useRef } from "react";
-import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
 
 // Presentational Component or Component
-function TodoForm({ add }) {
+  // Container가 주는 데이터나 함수를 받아서 실행하는 역할
+export default function TodoForm({ add }) {
   // uncontrolled component로 폼 데이터 작성하기
   // -> DOM 자체에서 폼 데이터를 다룸
     // -> ref로 DOM에서 폼 value를 가져옴
@@ -21,14 +20,3 @@ function TodoForm({ add }) {
   }
 }
 
-
-// Container Component or Smart Component
-// * export default connect(config)(TodoForm);
-export default connect(
-  (state) => ({}),
-  (dispatch) => ({
-    add: (text) => {
-      dispatch(addTodo(text));
-    }
-  })
-)(TodoForm);

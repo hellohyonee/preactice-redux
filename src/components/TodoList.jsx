@@ -1,31 +1,11 @@
-import { connect } from "react-redux";
-
 // Presentational Component or Component
-function TodoList({ todos }) {
+  // Container가 주는 데이터나 함수를 받아서 실행하는 역할
+export default function TodoList({ todos }) {
   return (
     <ul>
       {todos.map((todo) => {
         return <li>{todo.text}</li>;
       })}
     </ul>
-  )
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {};
-}
-
-// Container Component or Smart Component
-// * const TodoListContainer = connect(config)(TodoList);
-const TodoListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList);
-
-export default TodoListContainer;
