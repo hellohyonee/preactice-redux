@@ -22,8 +22,16 @@ function useReduxState() {
   return state;
 }
 
+// Dispatch Custom Hook
+function useReduxDispatch() {
+  const store = useContext(ReduxContext);
+
+  return store.dispatch;
+}
+
 function App() {
   const state = useReduxState();
+  const dispatch = useReduxDispatch();
 
   return (
     <>
@@ -33,7 +41,7 @@ function App() {
   );
 
   function click() {
-    // store.dispatch(addTodo('todo'));
+    dispatch(addTodo('todo'));
   }
 }
 
