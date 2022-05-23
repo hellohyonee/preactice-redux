@@ -20,7 +20,7 @@ import TodoList from "../components/TodoList";
 // )(TodoList);
 
 //! Hook으로 컨테이너 만들기
-// TodoListContainer의 역할: store에 연결 ->  store에서 state를 꺼내서 필요한 요소를 props로 넘김.
+// TodoListContainer의 역할: store에 연결 ->  store의 state를 꺼내서 필요한 요소를 props로 넘김.
 function TodoListContainer() {
   const todos = useSelector((state) => state.todos);
 
