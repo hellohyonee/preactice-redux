@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 import history from "../history";
+import { routerMiddleware } from "connected-react-router";
 
 // redux-devtools에서 볼 수 있게 처리 -> composeWithDevTools()
 // thunk.withExtraArgument({ history }) -> history 객체를 만들어서 thunk에 extraArgument로 전달
@@ -11,7 +12,11 @@ import history from "../history";
 const store = createStore(
   todoApp,
   composeWithDevTools(
-    applyMiddleware(thunk.withExtraArgument({ history }), promise)
+    applyMiddleware(
+      thunk.withExtraArgument({ history }),
+      promise,
+      routerMiddleware(history)
+    )
   )
 );
 

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Todos from "./pages/Todos";
 import Users from "./pages/Users";
 import history from "./history";
+import { ConnectedRouter } from "connected-react-router";
 
 // thunk에서 전달받은 history 객체를 Router에 전달
 // BrowserRouter에서는 자체적으로 사용하기 때문에 호환이 안 됨 -> 자체적으로 만든 history를 쓰기 위해서는 Router를 사용해야함
@@ -12,11 +13,11 @@ import history from "./history";
 
 function App() {
   return (
-    <Router history={history}>
+    <ConnectedRouter history={history}>
       <Route path="/" exact component={Home} />
       <Route path="/todos" exact component={Todos} />
       <Route path="/users" component={Users} />
-    </Router>
+    </ConnectedRouter>
   );
 }
 
