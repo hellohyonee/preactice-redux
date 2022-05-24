@@ -2,6 +2,7 @@ import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import todoApp from "./reducers/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import promise from "redux-promise-middleware";
 
 // function middleware1(store) {
 //   console.log("middleware1", 0);
@@ -30,6 +31,9 @@ import thunk from "redux-thunk";
 // }
 
 // redux-devtools에서 볼 수 있게 처리 -> composeWithDevTools()
-const store = createStore(todoApp, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+  todoApp,
+  composeWithDevTools(applyMiddleware(thunk, promise))
+);
 
 export default store;

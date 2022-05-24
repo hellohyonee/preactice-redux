@@ -72,3 +72,22 @@ export function getUsersThunk() {
     }
   };
 }
+
+// ! ---- redux-promise-middleware 사용하기 ----
+// type으로 dispatch를 할 때 payload에 promise 객체가 있으면 PENDING, FULFILLED, REJECTED
+
+const GET_USERS = "GET_USERS";
+
+export const GET_USERS_PENDING = "GET_USERS_PENDING"; // type만 전달
+export const GET_USERS_FULFILLED = "GET_USERS_FULFILLED"; // payload에 promise 객체로 data를 보냄
+export const GET_USERS_REJECTED = "GET_USERS_REJECTED"; // payload에 promise 객체로 error를 보냄
+
+export function getUsersPromise() {
+  return {
+    type: GET_USERS,
+    payload: async () => {
+      const res = await axios.get("https://api.github.com/users");
+      return res.data;
+    },
+  };
+}
