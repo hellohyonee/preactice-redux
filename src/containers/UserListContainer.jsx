@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserList from "../components/UserList";
 // import { getUsersFail, getUsersStart, getUsersSuccess, getUsersThunk } from "../redux/actions";
 // import axios from "axios";
-import { getUsersPromise, getUsersThunk } from "../redux/actions";
+import { getUsersPromise, getUsersThunk } from "../redux/modules/users";
 
 // 리듀서는 Pure Component이므로 동기적으로 움직이므로 action을 각각 dispatch 해줌. -> 동기적으로 움직임
 export default function UserListContainer() {
