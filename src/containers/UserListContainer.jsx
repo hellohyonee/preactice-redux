@@ -41,16 +41,16 @@ export default function UserListContainer() {
   // }, [dispatch]);
 
   //! redux-thunk 사용하기 -> 비동기 처리
-  // const getUsers = useCallback(() => {
-  //   dispatch(getUsersThunk());
-  // }, [dispatch]);
-
-  // return <UserList users={users} getUsers={getUsers} />;
-
-  //! redux-promise-middleware 사용하기 ->  비동기 처리
   const getUsers = useCallback(() => {
-    dispatch(getUsersPromise());
+    dispatch(getUsersThunk());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;
+
+  //! redux-promise-middleware 사용하기 ->  비동기 처리
+  // const getUsers = useCallback(() => {
+  //   dispatch(getUsersPromise());
+  // }, [dispatch]);
+
+  // return <UserList users={users} getUsers={getUsers} />;
 }
